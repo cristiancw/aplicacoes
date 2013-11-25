@@ -9,6 +9,8 @@ import javax.swing.text.html.HTMLEditorKit;
 
 import org.joda.time.LocalDate;
 
+import br.com.Resultado;
+
 /**
  * Faz o parser do arquivo html.
  * 

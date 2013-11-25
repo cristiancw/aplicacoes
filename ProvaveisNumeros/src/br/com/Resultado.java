@@ -1,4 +1,4 @@
-package br.com.provaveisnumeros;
+package br.com;
 
 import org.joda.time.LocalDate;
 

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import br.com.Resultado;
+
 /**
  * Com base em uma lista de resultados préviamente filtrada separa os 6 resultados que mais apareceram e lista os valores que apareceram como sendo os próximos prováveis.
  * 

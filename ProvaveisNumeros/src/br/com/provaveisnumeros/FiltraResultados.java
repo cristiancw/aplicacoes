@@ -10,6 +10,7 @@ import java.util.TreeMap;
 
 import org.joda.time.LocalDate;
 
+import br.com.Resultado;
 import br.com.Util;
 
 /**

@@ -18,6 +18,8 @@ import java.util.zip.ZipInputStream;
 
 import javax.swing.text.html.parser.ParserDelegator;
 
+import br.com.Resultado;
+
 /**
  * Faz o download do arquivo do site da caixa, descompacta o arquivo e faz o parser do arquivo html para uma lista de objetos {@link Resultado}.
  * 
