@@ -9,16 +9,16 @@ import org.junit.Test;
 
 import br.com.Resultado;
 
-public class CalculaResultadoProvavel_Test {
+public class BuscaFrequencia_Test {
 
 	private List<Resultado> carregarResultado;
 
 	@Test
 	public void testaResultadosMaisFrequentesMaisFrequentes_01() throws IOException {
-		FiltraResultados filtraResultados = new FiltraResultados(getResultados());
+		FiltrarResultados filtraResultados = new FiltrarResultados(getResultados());
 		List<Resultado> resultados = filtraResultados.getResultados(new LocalDate(1996, 3, 11), new LocalDate(1996, 3, 18));
-		CalculaResultadoProvavel calculaResultadoProvavel = new CalculaResultadoProvavel(resultados);
-		List<Integer> maisFrequentes = calculaResultadoProvavel.getMaisFrequentes();
+		BuscaFrequencia buscaFrequencia = new BuscaFrequencia(resultados);
+		List<Integer> maisFrequentes = buscaFrequencia.getMaisFrequentes();
 		Assert.assertEquals(11, maisFrequentes.size());
 
 		int i = 0;
@@ -37,10 +37,10 @@ public class CalculaResultadoProvavel_Test {
 
 	@Test
 	public void testaResultadosMaisFrequentes_02() throws IOException {
-		FiltraResultados filtraResultados = new FiltraResultados(getResultados());
+		FiltrarResultados filtraResultados = new FiltrarResultados(getResultados());
 		List<Resultado> resultados = filtraResultados.getResultados(new LocalDate(1996, 3, 11), new LocalDate(1997, 3, 16));
-		CalculaResultadoProvavel calculaResultadoProvavel = new CalculaResultadoProvavel(resultados);
-		List<Integer> maisFrequentes = calculaResultadoProvavel.getMaisFrequentes();
+		BuscaFrequencia buscaFrequencia = new BuscaFrequencia(resultados);
+		List<Integer> maisFrequentes = buscaFrequencia.getMaisFrequentes();
 		Assert.assertEquals(7, maisFrequentes.size());
 
 		int i = 0;
@@ -55,10 +55,10 @@ public class CalculaResultadoProvavel_Test {
 
 	@Test
 	public void testaResultadosMaisFrequentes_03() throws IOException {
-		FiltraResultados filtraResultados = new FiltraResultados(getResultados());
+		FiltrarResultados filtraResultados = new FiltrarResultados(getResultados());
 		List<Resultado> resultados = filtraResultados.getResultados(new LocalDate(1996, 3, 11), new LocalDate(2007, 3, 11));
-		CalculaResultadoProvavel calculaResultadoProvavel = new CalculaResultadoProvavel(resultados);
-		List<Integer> maisFrequentes = calculaResultadoProvavel.getMaisFrequentes();
+		BuscaFrequencia buscaFrequencia = new BuscaFrequencia(resultados);
+		List<Integer> maisFrequentes = buscaFrequencia.getMaisFrequentes();
 		Assert.assertEquals(7, maisFrequentes.size());
 
 		int i = 0;
@@ -73,10 +73,10 @@ public class CalculaResultadoProvavel_Test {
 
 	@Test
 	public void testaResultadosMaisFrequentes_04() throws IOException {
-		FiltraResultados filtraResultados = new FiltraResultados(getResultados());
+		FiltrarResultados filtraResultados = new FiltrarResultados(getResultados());
 		List<Resultado> resultados = filtraResultados.getResultados(2000);
-		CalculaResultadoProvavel calculaResultadoProvavel = new CalculaResultadoProvavel(resultados);
-		List<Integer> maisFrequentes = calculaResultadoProvavel.getMaisFrequentes();
+		BuscaFrequencia buscaFrequencia = new BuscaFrequencia(resultados);
+		List<Integer> maisFrequentes = buscaFrequencia.getMaisFrequentes();
 		Assert.assertEquals(14, maisFrequentes.size());
 
 		int i = 0;
@@ -98,10 +98,10 @@ public class CalculaResultadoProvavel_Test {
 
 	@Test
 	public void testaResultadosMaisFrequentes_05() throws IOException {
-		FiltraResultados filtraResultados = new FiltraResultados(getResultados());
+		FiltrarResultados filtraResultados = new FiltrarResultados(getResultados());
 		List<Resultado> resultados = filtraResultados.getResultados(2010);
-		CalculaResultadoProvavel calculaResultadoProvavel = new CalculaResultadoProvavel(resultados);
-		List<Integer> maisFrequentes = calculaResultadoProvavel.getMaisFrequentes();
+		BuscaFrequencia buscaFrequencia = new BuscaFrequencia(resultados);
+		List<Integer> maisFrequentes = buscaFrequencia.getMaisFrequentes();
 		Assert.assertEquals(9, maisFrequentes.size());
 
 		int i = 0;
@@ -118,10 +118,10 @@ public class CalculaResultadoProvavel_Test {
 
 	@Test
 	public void testaResultadosMenosFrequentesMaisFrequentes_01() throws IOException {
-		FiltraResultados filtraResultados = new FiltraResultados(getResultados());
+		FiltrarResultados filtraResultados = new FiltrarResultados(getResultados());
 		List<Resultado> resultados = filtraResultados.getResultados(new LocalDate(1996, 3, 11), new LocalDate(1996, 3, 18));
-		CalculaResultadoProvavel calculaResultadoProvavel = new CalculaResultadoProvavel(resultados);
-		List<Integer> menosFrequentes = calculaResultadoProvavel.getMenosFrequentes();
+		BuscaFrequencia buscaFrequencia = new BuscaFrequencia(resultados);
+		List<Integer> menosFrequentes = buscaFrequencia.getMenosFrequentes();
 		Assert.assertEquals(10, menosFrequentes.size());
 
 		int i = 0;
@@ -139,10 +139,10 @@ public class CalculaResultadoProvavel_Test {
 
 	@Test
 	public void testaResultadosMenosFrequentes_02() throws IOException {
-		FiltraResultados filtraResultados = new FiltraResultados(getResultados());
+		FiltrarResultados filtraResultados = new FiltrarResultados(getResultados());
 		List<Resultado> resultados = filtraResultados.getResultados(new LocalDate(1996, 3, 11), new LocalDate(1997, 3, 16));
-		CalculaResultadoProvavel calculaResultadoProvavel = new CalculaResultadoProvavel(resultados);
-		List<Integer> menosFrequentes = calculaResultadoProvavel.getMenosFrequentes();
+		BuscaFrequencia buscaFrequencia = new BuscaFrequencia(resultados);
+		List<Integer> menosFrequentes = buscaFrequencia.getMenosFrequentes();
 		Assert.assertEquals(6, menosFrequentes.size());
 
 		int i = 0;
@@ -156,10 +156,10 @@ public class CalculaResultadoProvavel_Test {
 
 	@Test
 	public void testaResultadosMenosFrequentes_03() throws IOException {
-		FiltraResultados filtraResultados = new FiltraResultados(getResultados());
+		FiltrarResultados filtraResultados = new FiltrarResultados(getResultados());
 		List<Resultado> resultados = filtraResultados.getResultados(new LocalDate(1996, 3, 11), new LocalDate(2007, 3, 11));
-		CalculaResultadoProvavel calculaResultadoProvavel = new CalculaResultadoProvavel(resultados);
-		List<Integer> menosFrequentes = calculaResultadoProvavel.getMenosFrequentes();
+		BuscaFrequencia buscaFrequencia = new BuscaFrequencia(resultados);
+		List<Integer> menosFrequentes = buscaFrequencia.getMenosFrequentes();
 		Assert.assertEquals(7, menosFrequentes.size());
 
 		int i = 0;
@@ -174,10 +174,10 @@ public class CalculaResultadoProvavel_Test {
 
 	@Test
 	public void testaResultadosMenosFrequentes_04() throws IOException {
-		FiltraResultados filtraResultados = new FiltraResultados(getResultados());
+		FiltrarResultados filtraResultados = new FiltrarResultados(getResultados());
 		List<Resultado> resultados = filtraResultados.getResultados(2000);
-		CalculaResultadoProvavel calculaResultadoProvavel = new CalculaResultadoProvavel(resultados);
-		List<Integer> menosFrequentes = calculaResultadoProvavel.getMenosFrequentes();
+		BuscaFrequencia buscaFrequencia = new BuscaFrequencia(resultados);
+		List<Integer> menosFrequentes = buscaFrequencia.getMenosFrequentes();
 		Assert.assertEquals(7, menosFrequentes.size());
 
 		int i = 0;
@@ -192,10 +192,10 @@ public class CalculaResultadoProvavel_Test {
 
 	@Test
 	public void testaResultadosMenosFrequentes_05() throws IOException {
-		FiltraResultados filtraResultados = new FiltraResultados(getResultados());
+		FiltrarResultados filtraResultados = new FiltrarResultados(getResultados());
 		List<Resultado> resultados = filtraResultados.getResultados(2010);
-		CalculaResultadoProvavel calculaResultadoProvavel = new CalculaResultadoProvavel(resultados);
-		List<Integer> menosFrequentes = calculaResultadoProvavel.getMenosFrequentes();
+		BuscaFrequencia buscaFrequencia = new BuscaFrequencia(resultados);
+		List<Integer> menosFrequentes = buscaFrequencia.getMenosFrequentes();
 		Assert.assertEquals(6, menosFrequentes.size());
 
 		int i = 0;
@@ -209,7 +209,7 @@ public class CalculaResultadoProvavel_Test {
 
 	private List<Resultado> getResultados() throws IOException {
 		if (carregarResultado == null) {
-			CarregarResultados carregarResultados = new CarregarResultados("C:/Eclipse/workspace/ProvaveisNumeros/srcTest");
+			CarregarResultados carregarResultados = new CarregarResultados("C:/Eclipse/workspace/aplicacoes/ProvaveisNumeros/srcTest");
 			carregarResultado = carregarResultados.carregarResultado();
 		}
 		return carregarResultado;

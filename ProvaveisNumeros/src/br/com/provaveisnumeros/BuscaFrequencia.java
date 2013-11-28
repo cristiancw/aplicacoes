@@ -12,7 +12,7 @@ import br.com.Resultado;
  * @author Cristiancw
  * 
  */
-public class CalculaResultadoProvavel {
+class BuscaFrequencia {
 
 	private final int[] contResultado;
 	private static final int TAMANHO_LISTA = 61; // posição 0 sempre deve ser 0
@@ -23,7 +23,7 @@ public class CalculaResultadoProvavel {
 	 * 
 	 * @param resultados
 	 */
-	public CalculaResultadoProvavel(List<Resultado> resultados) {
+	BuscaFrequencia(List<Resultado> resultados) {
 		contResultado = montaContadorResultados(resultados);
 	}
 
@@ -32,7 +32,7 @@ public class CalculaResultadoProvavel {
 	 * 
 	 * @return lista de valores que mais aparecem
 	 */
-	public List<Integer> getMaisFrequentes() {
+	List<Integer> getMaisFrequentes() {
 		// Duplica a lista original e ordena ela
 		int[] listaOrdenada = new int[TAMANHO_LISTA];
 		for (int i = 0; i < listaOrdenada.length; i++) {
@@ -75,7 +75,7 @@ public class CalculaResultadoProvavel {
 	 * 
 	 * @return lista de valores que menos aparecem
 	 */
-	public List<Integer> getMenosFrequentes() {
+	List<Integer> getMenosFrequentes() {
 		// Duplica a lista original e ordena ela
 		int[] listaOrdenada = new int[TAMANHO_LISTA];
 		for (int i = 0; i < listaOrdenada.length; i++) {

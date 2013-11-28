@@ -10,14 +10,14 @@ import org.junit.Test;
 
 import br.com.Resultado;
 
-public class FiltraResultados_Test {
+public class FiltrarResultados_Test {
 
 	private List<Resultado> carregarResultado;
 
 	@Test
 	public void testaListaAnos() throws IOException {
-		FiltraResultados filtraResultados = new FiltraResultados(getResultados());
-		List<Integer> listaAnos = filtraResultados.getListaAnos();
+		FiltrarResultados filtrarResultados = new FiltrarResultados(getResultados());
+		List<Integer> listaAnos = filtrarResultados.getListaAnos();
 		Assert.assertEquals(18, listaAnos.size());
 		Assert.assertEquals(1996, listaAnos.get(0).intValue());
 		Assert.assertEquals(1997, listaAnos.get(1).intValue());
@@ -41,8 +41,8 @@ public class FiltraResultados_Test {
 
 	@Test
 	public void testaResultados() throws IOException {
-		FiltraResultados filtraResultados = new FiltraResultados(getResultados());
-		List<Resultado> resultados = filtraResultados.getResultados();
+		FiltrarResultados filtrarResultados = new FiltrarResultados(getResultados());
+		List<Resultado> resultados = filtrarResultados.getResultados();
 		Assert.assertEquals(1538, resultados.size());
 
 		Resultado concurso = resultados.get(0);
@@ -88,8 +88,8 @@ public class FiltraResultados_Test {
 
 	@Test
 	public void testaResultadosAno_1996() throws IOException {
-		FiltraResultados filtraResultados = new FiltraResultados(getResultados());
-		List<Resultado> resultados = filtraResultados.getResultados(1996);
+		FiltrarResultados filtrarResultados = new FiltrarResultados(getResultados());
+		List<Resultado> resultados = filtrarResultados.getResultados(1996);
 		Assert.assertEquals(43, resultados.size());
 
 		Resultado concurso = resultados.get(0);
@@ -125,8 +125,8 @@ public class FiltraResultados_Test {
 
 	@Test
 	public void testaResultadosAno_2004() throws IOException {
-		FiltraResultados filtraResultados = new FiltraResultados(getResultados());
-		List<Resultado> resultados = filtraResultados.getResultados(2004);
+		FiltrarResultados filtrarResultados = new FiltrarResultados(getResultados());
+		List<Resultado> resultados = filtrarResultados.getResultados(2004);
 		Assert.assertEquals(102, resultados.size());
 
 		Resultado concurso = resultados.get(0);
@@ -162,8 +162,8 @@ public class FiltraResultados_Test {
 
 	@Test
 	public void testaResultadosAno_2013() throws IOException {
-		FiltraResultados filtraResultados = new FiltraResultados(getResultados());
-		List<Resultado> resultados = filtraResultados.getResultados(2013);
+		FiltrarResultados filtrarResultados = new FiltrarResultados(getResultados());
+		List<Resultado> resultados = filtrarResultados.getResultados(2013);
 		Assert.assertEquals(83, resultados.size());
 
 		Resultado concurso = resultados.get(0);
@@ -199,44 +199,44 @@ public class FiltraResultados_Test {
 
 	@Test
 	public void testaHasResultado_01() throws IOException {
-		FiltraResultados filtraResultados = new FiltraResultados(getResultados());
-		Assert.assertTrue(filtraResultados.hasSorteio(new LocalDate(1996, 3, 11)));
+		FiltrarResultados filtrarResultados = new FiltrarResultados(getResultados());
+		Assert.assertTrue(filtrarResultados.hasSorteio(new LocalDate(1996, 3, 11)));
 	}
 
 	@Test
 	public void testaHasResultado_02() throws IOException {
-		FiltraResultados filtraResultados = new FiltraResultados(getResultados());
-		Assert.assertFalse(filtraResultados.hasSorteio(new LocalDate(1996, 3, 10)));
+		FiltrarResultados filtrarResultados = new FiltrarResultados(getResultados());
+		Assert.assertFalse(filtrarResultados.hasSorteio(new LocalDate(1996, 3, 10)));
 	}
 
 	@Test
 	public void testaHasResultado_03() throws IOException {
-		FiltraResultados filtraResultados = new FiltraResultados(getResultados());
-		Assert.assertTrue(filtraResultados.hasSorteio(new LocalDate(2003, 1, 8)));
+		FiltrarResultados filtrarResultados = new FiltrarResultados(getResultados());
+		Assert.assertTrue(filtrarResultados.hasSorteio(new LocalDate(2003, 1, 8)));
 	}
 
 	@Test
 	public void testaHasResultado_04() throws IOException {
-		FiltraResultados filtraResultados = new FiltraResultados(getResultados());
-		Assert.assertFalse(filtraResultados.hasSorteio(new LocalDate(2008, 3, 25)));
+		FiltrarResultados filtrarResultados = new FiltrarResultados(getResultados());
+		Assert.assertFalse(filtrarResultados.hasSorteio(new LocalDate(2008, 3, 25)));
 	}
 
 	@Test
 	public void testaHasResultado_05() throws IOException {
-		FiltraResultados filtraResultados = new FiltraResultados(getResultados());
-		Assert.assertTrue(filtraResultados.hasSorteio(new LocalDate(2013, 10, 11)));
+		FiltrarResultados filtrarResultados = new FiltrarResultados(getResultados());
+		Assert.assertTrue(filtrarResultados.hasSorteio(new LocalDate(2013, 10, 11)));
 	}
 
 	@Test
 	public void testaHasResultado_06() throws IOException {
-		FiltraResultados filtraResultados = new FiltraResultados(getResultados());
-		Assert.assertFalse(filtraResultados.hasSorteio(new LocalDate(2013, 10, 12)));
+		FiltrarResultados filtrarResultados = new FiltrarResultados(getResultados());
+		Assert.assertFalse(filtrarResultados.hasSorteio(new LocalDate(2013, 10, 12)));
 	}
 
 	@Test
 	public void testaBuscaDataAnterior_01() throws IOException {
-		FiltraResultados filtraResultados = new FiltraResultados(getResultados());
-		Resultado concurso = filtraResultados.buscaDataAnterior(new LocalDate(1996, 3, 11));
+		FiltrarResultados filtrarResultados = new FiltrarResultados(getResultados());
+		Resultado concurso = filtrarResultados.buscaDataAnterior(new LocalDate(1996, 3, 11));
 
 		Assert.assertEquals(1, concurso.getNumero());
 		Assert.assertEquals(new LocalDate(1996, 3, 11), concurso.getData());
@@ -250,9 +250,9 @@ public class FiltraResultados_Test {
 
 	@Test
 	public void testaBuscaDataAnterior_02() throws IOException {
-		FiltraResultados filtraResultados = new FiltraResultados(getResultados());
+		FiltrarResultados filtrarResultados = new FiltrarResultados(getResultados());
 		try {
-			filtraResultados.buscaDataAnterior(new LocalDate(1996, 3, 10));
+			filtrarResultados.buscaDataAnterior(new LocalDate(1996, 3, 10));
 			Assert.fail("Deveria ter lançando InvalidParameterException");
 		} catch (InvalidParameterException e) {
 			Assert.assertEquals("A data é menor que a data do primeiro concurso realizado. Dia: 10/03/1996", e.getMessage());
@@ -263,8 +263,8 @@ public class FiltraResultados_Test {
 
 	@Test
 	public void testaBuscaDataAnterior_03() throws IOException {
-		FiltraResultados filtraResultados = new FiltraResultados(getResultados());
-		Resultado concurso = filtraResultados.buscaDataAnterior(new LocalDate(2011, 5, 7));
+		FiltrarResultados filtrarResultados = new FiltrarResultados(getResultados());
+		Resultado concurso = filtrarResultados.buscaDataAnterior(new LocalDate(2011, 5, 7));
 
 		Assert.assertEquals(1281, concurso.getNumero());
 		Assert.assertEquals(new LocalDate(2011, 5, 7), concurso.getData());
@@ -278,8 +278,8 @@ public class FiltraResultados_Test {
 
 	@Test
 	public void testaBuscaDataAnterior_04() throws IOException {
-		FiltraResultados filtraResultados = new FiltraResultados(getResultados());
-		Resultado concurso = filtraResultados.buscaDataAnterior(new LocalDate(2011, 5, 9));
+		FiltrarResultados filtrarResultados = new FiltrarResultados(getResultados());
+		Resultado concurso = filtrarResultados.buscaDataAnterior(new LocalDate(2011, 5, 9));
 
 		Assert.assertEquals(1281, concurso.getNumero());
 		Assert.assertEquals(new LocalDate(2011, 5, 7), concurso.getData());
@@ -293,8 +293,8 @@ public class FiltraResultados_Test {
 
 	@Test
 	public void testaBuscaDataPosterior_01() throws IOException {
-		FiltraResultados filtraResultados = new FiltraResultados(getResultados());
-		Resultado concurso = filtraResultados.buscaDataPosterior(new LocalDate(2013, 10, 11));
+		FiltrarResultados filtrarResultados = new FiltrarResultados(getResultados());
+		Resultado concurso = filtrarResultados.buscaDataPosterior(new LocalDate(2013, 10, 11));
 
 		Assert.assertEquals(1538, concurso.getNumero());
 		Assert.assertEquals(new LocalDate(2013, 10, 11), concurso.getData());
@@ -308,9 +308,9 @@ public class FiltraResultados_Test {
 
 	@Test
 	public void testaBuscaDataPosterior_02() throws IOException {
-		FiltraResultados filtraResultados = new FiltraResultados(getResultados());
+		FiltrarResultados filtrarResultados = new FiltrarResultados(getResultados());
 		try {
-			filtraResultados.buscaDataPosterior(new LocalDate(2013, 10, 12));
+			filtrarResultados.buscaDataPosterior(new LocalDate(2013, 10, 12));
 			Assert.fail("Deveria ter lançando InvalidParameterException");
 		} catch (InvalidParameterException e) {
 			Assert.assertEquals("A data é maior que a data do último concurso realizado. Dia: 12/10/2013", e.getMessage());
@@ -321,8 +321,8 @@ public class FiltraResultados_Test {
 
 	@Test
 	public void testaBuscaDataPosterior_03() throws IOException {
-		FiltraResultados filtraResultados = new FiltraResultados(getResultados());
-		Resultado concurso = filtraResultados.buscaDataPosterior(new LocalDate(2011, 5, 7));
+		FiltrarResultados filtrarResultados = new FiltrarResultados(getResultados());
+		Resultado concurso = filtrarResultados.buscaDataPosterior(new LocalDate(2011, 5, 7));
 
 		Assert.assertEquals(1281, concurso.getNumero());
 		Assert.assertEquals(new LocalDate(2011, 5, 7), concurso.getData());
@@ -336,8 +336,8 @@ public class FiltraResultados_Test {
 
 	@Test
 	public void testaBuscaDataPosterior_04() throws IOException {
-		FiltraResultados filtraResultados = new FiltraResultados(getResultados());
-		Resultado concurso = filtraResultados.buscaDataPosterior(new LocalDate(2011, 5, 9));
+		FiltrarResultados filtrarResultados = new FiltrarResultados(getResultados());
+		Resultado concurso = filtrarResultados.buscaDataPosterior(new LocalDate(2011, 5, 9));
 
 		Assert.assertEquals(1282, concurso.getNumero());
 		Assert.assertEquals(new LocalDate(2011, 5, 11), concurso.getData());
@@ -353,8 +353,8 @@ public class FiltraResultados_Test {
 	public void testaResultadoData_01() throws IOException {
 		LocalDate inicio = new LocalDate(1996, 3, 11);
 		LocalDate fim = new LocalDate(1996, 3, 11);
-		FiltraResultados filtraResultados = new FiltraResultados(getResultados());
-		List<Resultado> resultados = filtraResultados.getResultados(inicio, fim);
+		FiltrarResultados filtrarResultados = new FiltrarResultados(getResultados());
+		List<Resultado> resultados = filtrarResultados.getResultados(inicio, fim);
 		Assert.assertEquals(1, resultados.size());
 
 		Resultado concurso = resultados.get(0);
@@ -372,8 +372,8 @@ public class FiltraResultados_Test {
 	public void testaResultadoData_02() throws IOException {
 		LocalDate inicio = new LocalDate(1996, 3, 10);
 		LocalDate fim = new LocalDate(1996, 3, 10);
-		FiltraResultados filtraResultados = new FiltraResultados(getResultados());
-		List<Resultado> resultados = filtraResultados.getResultados(inicio, fim);
+		FiltrarResultados filtrarResultados = new FiltrarResultados(getResultados());
+		List<Resultado> resultados = filtrarResultados.getResultados(inicio, fim);
 		Assert.assertEquals(0, resultados.size());
 	}
 
@@ -381,8 +381,8 @@ public class FiltraResultados_Test {
 	public void testaResultadoData_03() throws IOException {
 		LocalDate inicio = new LocalDate(1996, 3, 11);
 		LocalDate fim = new LocalDate(1996, 3, 12);
-		FiltraResultados filtraResultados = new FiltraResultados(getResultados());
-		List<Resultado> resultados = filtraResultados.getResultados(inicio, fim);
+		FiltrarResultados filtrarResultados = new FiltrarResultados(getResultados());
+		List<Resultado> resultados = filtrarResultados.getResultados(inicio, fim);
 		Assert.assertEquals(1, resultados.size());
 
 		Resultado concurso = resultados.get(0);
@@ -400,8 +400,8 @@ public class FiltraResultados_Test {
 	public void testaResultadoData_04() throws IOException {
 		LocalDate inicio = new LocalDate(1996, 3, 10);
 		LocalDate fim = new LocalDate(1996, 3, 11);
-		FiltraResultados filtraResultados = new FiltraResultados(getResultados());
-		List<Resultado> resultados = filtraResultados.getResultados(inicio, fim);
+		FiltrarResultados filtrarResultados = new FiltrarResultados(getResultados());
+		List<Resultado> resultados = filtrarResultados.getResultados(inicio, fim);
 		Assert.assertEquals(1, resultados.size());
 
 		Resultado concurso = resultados.get(0);
@@ -419,8 +419,8 @@ public class FiltraResultados_Test {
 	public void testaResultadoData_05() throws IOException {
 		LocalDate inicio = new LocalDate(2013, 10, 11);
 		LocalDate fim = new LocalDate(2013, 10, 11);
-		FiltraResultados filtraResultados = new FiltraResultados(getResultados());
-		List<Resultado> resultados = filtraResultados.getResultados(inicio, fim);
+		FiltrarResultados filtrarResultados = new FiltrarResultados(getResultados());
+		List<Resultado> resultados = filtrarResultados.getResultados(inicio, fim);
 		Assert.assertEquals(1, resultados.size());
 
 		Resultado concurso = resultados.get(0);
@@ -438,8 +438,8 @@ public class FiltraResultados_Test {
 	public void testaResultadoData_06() throws IOException {
 		LocalDate inicio = new LocalDate(2013, 10, 12);
 		LocalDate fim = new LocalDate(2013, 10, 12);
-		FiltraResultados filtraResultados = new FiltraResultados(getResultados());
-		List<Resultado> resultados = filtraResultados.getResultados(inicio, fim);
+		FiltrarResultados filtrarResultados = new FiltrarResultados(getResultados());
+		List<Resultado> resultados = filtrarResultados.getResultados(inicio, fim);
 		Assert.assertEquals(0, resultados.size());
 	}
 
@@ -447,8 +447,8 @@ public class FiltraResultados_Test {
 	public void testaResultadoData_07() throws IOException {
 		LocalDate inicio = new LocalDate(2013, 10, 11);
 		LocalDate fim = new LocalDate(2013, 10, 12);
-		FiltraResultados filtraResultados = new FiltraResultados(getResultados());
-		List<Resultado> resultados = filtraResultados.getResultados(inicio, fim);
+		FiltrarResultados filtrarResultados = new FiltrarResultados(getResultados());
+		List<Resultado> resultados = filtrarResultados.getResultados(inicio, fim);
 		Assert.assertEquals(1, resultados.size());
 
 		Resultado concurso = resultados.get(0);
@@ -466,8 +466,8 @@ public class FiltraResultados_Test {
 	public void testaResultadoData_08() throws IOException {
 		LocalDate inicio = new LocalDate(2013, 10, 10);
 		LocalDate fim = new LocalDate(2013, 10, 11);
-		FiltraResultados filtraResultados = new FiltraResultados(getResultados());
-		List<Resultado> resultados = filtraResultados.getResultados(inicio, fim);
+		FiltrarResultados filtrarResultados = new FiltrarResultados(getResultados());
+		List<Resultado> resultados = filtrarResultados.getResultados(inicio, fim);
 		Assert.assertEquals(1, resultados.size());
 
 		Resultado concurso = resultados.get(0);
@@ -485,8 +485,8 @@ public class FiltraResultados_Test {
 	public void testaResultadoData_09() throws IOException {
 		LocalDate inicio = new LocalDate(2005, 6, 4);
 		LocalDate fim = new LocalDate(2005, 7, 6);
-		FiltraResultados filtraResultados = new FiltraResultados(getResultados());
-		List<Resultado> resultados = filtraResultados.getResultados(inicio, fim);
+		FiltrarResultados filtrarResultados = new FiltrarResultados(getResultados());
+		List<Resultado> resultados = filtrarResultados.getResultados(inicio, fim);
 		Assert.assertEquals(10, resultados.size());
 
 		Resultado concurso = resultados.get(0);
@@ -594,8 +594,8 @@ public class FiltraResultados_Test {
 	public void testaResultadoData_10() throws IOException {
 		LocalDate inicio = new LocalDate(2005, 6, 2);
 		LocalDate fim = new LocalDate(2005, 7, 8);
-		FiltraResultados filtraResultados = new FiltraResultados(getResultados());
-		List<Resultado> resultados = filtraResultados.getResultados(inicio, fim);
+		FiltrarResultados filtrarResultados = new FiltrarResultados(getResultados());
+		List<Resultado> resultados = filtrarResultados.getResultados(inicio, fim);
 		Assert.assertEquals(10, resultados.size());
 
 		Resultado concurso = resultados.get(0);
@@ -701,7 +701,7 @@ public class FiltraResultados_Test {
 
 	private List<Resultado> getResultados() throws IOException {
 		if (carregarResultado == null) {
-			CarregarResultados carregarResultados = new CarregarResultados("C:/Eclipse/workspace/ProvaveisNumeros/srcTest");
+			CarregarResultados carregarResultados = new CarregarResultados("C:/Eclipse/workspace/aplicacoes/ProvaveisNumeros/srcTest");
 			carregarResultado = carregarResultados.carregarResultado();
 		}
 		return carregarResultado;

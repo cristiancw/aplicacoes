@@ -19,7 +19,7 @@ import br.com.Util;
  * @author Cristiancw
  * 
  */
-class FiltraResultados {
+class FiltrarResultados {
 
 	private final List<Resultado> lista;
 	private final Map<Integer, List<Resultado>> anoLista;
@@ -30,7 +30,7 @@ class FiltraResultados {
 	 * 
 	 * @param resultados
 	 */
-	FiltraResultados(List<Resultado> resultados) {
+	FiltrarResultados(List<Resultado> resultados) {
 		lista = new ArrayList<Resultado>(resultados);
 		anoLista = new HashMap<Integer, List<Resultado>>();
 		dataLista = new TreeMap<LocalDate, Resultado>();

@@ -152,7 +152,7 @@ public class CarregarResultados_Test {
 
 	private List<Resultado> getResultados() throws IOException {
 		if (carregarResultado == null) {
-			CarregarResultados carregarResultados = new CarregarResultados("C:/Eclipse/workspace/ProvaveisNumeros/srcTest");
+			CarregarResultados carregarResultados = new CarregarResultados("C:/Eclipse/workspace/aplicacoes/ProvaveisNumeros/srcTest");
 			carregarResultado = carregarResultados.carregarResultado();
 		}
 		return carregarResultado;

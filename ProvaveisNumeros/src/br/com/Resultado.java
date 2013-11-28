@@ -107,4 +107,14 @@ public class Resultado {
 		builder.append(sex_dezena);
 		return builder.toString();
 	}
+
+	public boolean hasNumero(int numero) {
+		return pri_dezena == numero || //
+				seg_dezena == numero || //
+				ter_dezena == numero || //
+				qua_dezena == numero || //
+				qui_dezena == numero || //
+				sex_dezena == numero || //
+				sex_dezena == numero;
+	}
 }

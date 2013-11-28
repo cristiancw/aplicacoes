@@ -7,8 +7,9 @@ import org.junit.runners.Suite.SuiteClasses;
 @RunWith(Suite.class)
 @SuiteClasses({ //
 CarregarResultados_Test.class, //
-		FiltraResultados_Test.class, //
-		CalculaResultadoProvavel_Test.class //
+		FiltrarResultados_Test.class, //
+		BuscaFrequencia_Test.class, //
+		CalcularCombinacao_Test.class //
 })
 public class AllTests {
 
