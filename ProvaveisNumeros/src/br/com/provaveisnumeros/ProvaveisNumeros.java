@@ -12,6 +12,13 @@ import br.com.Resultado;
 public class ProvaveisNumeros {
 
 	public List<Resultado> executar(final Configuracao configuracao) throws IOException {
+		if (configuracao == null) {
+			throw new IllegalStateException("O calculo não foi configurado corretamente");
+		}
+		if (!configuracao.isValido()) {
+			throw new IllegalStateException(configuracao.getMotivoInvalido());
+		}
+
 		// Carrega os resultados
 		CarregarResultados carregarResultados = new CarregarResultados();
 		if (configuracao.isBaixarNovoArquivo()) {
@@ -38,10 +45,10 @@ public class ProvaveisNumeros {
 		BuscaFrequencia calculaResultadoProvavel = new BuscaFrequencia(resultados);
 		EnFequencia frequencia = configuracao.getFrequencia();
 		List<Integer> frequentes = new ArrayList<Integer>(0);
-		if (EnFequencia.MAIS_FREQUENTES == frequencia) {
-			frequentes = calculaResultadoProvavel.getMaisFrequentes();
-		} else {
+		if (EnFequencia.MENOS_FREQUENTES == frequencia) {
 			frequentes = calculaResultadoProvavel.getMenosFrequentes();
+		} else {
+			frequentes = calculaResultadoProvavel.getMaisFrequentes();
 		}
 
 		// Calcular as combinações

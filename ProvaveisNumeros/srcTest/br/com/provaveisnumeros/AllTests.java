@@ -9,7 +9,8 @@ import org.junit.runners.Suite.SuiteClasses;
 CarregarResultados_Test.class, //
 		FiltrarResultados_Test.class, //
 		BuscaFrequencia_Test.class, //
-		CalcularCombinacao_Test.class //
+		CalcularCombinacao_Test.class, //
+		ProvaveisNumeros_Test.class //
 })
 public class AllTests {
 
