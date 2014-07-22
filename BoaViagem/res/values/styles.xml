@@ -1,0 +1,28 @@
+<resources>
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+    <color name="dashbord_background">#015488</color>
+    <color name="branco">#FFFFFF</color>
+    <color name="gastos_titulo">#015488</color>
+    <color name="gastos_alimentacao">#9FC5F8</color>
+    <color name="gastos_hospedagem">#6FA8DC</color>
+    <color name="gastos_transporte">#0099CC</color>
+    <color name="gastos_outros">#ACBFD5</color>
+    <color name="gastos_combustivel">#222222</color>
+
+</resources>

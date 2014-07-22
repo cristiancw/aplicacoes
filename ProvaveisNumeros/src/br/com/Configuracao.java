@@ -17,6 +17,7 @@ public class Configuracao {
 	private LocalDate dataFinal;
 	private int ano;
 	private String motivoInvalido;
+	private String caminho;
 
 	public Configuracao() {
 		baixarNovoArquivo = false;
@@ -73,6 +74,14 @@ public class Configuracao {
 
 	public void setAno(int ano) {
 		this.ano = ano;
+	}
+
+	public String getCaminho() {
+		return caminho;
+	}
+
+	public void setCaminho(String caminho) {
+		this.caminho = caminho;
 	}
 
 	public boolean isValido() {

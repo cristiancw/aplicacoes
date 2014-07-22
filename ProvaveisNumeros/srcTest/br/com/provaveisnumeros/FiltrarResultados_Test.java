@@ -19,24 +19,24 @@ public class FiltrarResultados_Test {
 		FiltrarResultados filtrarResultados = new FiltrarResultados(getResultados());
 		List<Integer> listaAnos = filtrarResultados.getListaAnos();
 		Assert.assertEquals(18, listaAnos.size());
-		Assert.assertEquals(1996, listaAnos.get(0).intValue());
-		Assert.assertEquals(1997, listaAnos.get(1).intValue());
-		Assert.assertEquals(1998, listaAnos.get(2).intValue());
-		Assert.assertEquals(1999, listaAnos.get(3).intValue());
-		Assert.assertEquals(2000, listaAnos.get(4).intValue());
-		Assert.assertEquals(2001, listaAnos.get(5).intValue());
-		Assert.assertEquals(2002, listaAnos.get(6).intValue());
-		Assert.assertEquals(2003, listaAnos.get(7).intValue());
-		Assert.assertEquals(2004, listaAnos.get(8).intValue());
-		Assert.assertEquals(2005, listaAnos.get(9).intValue());
-		Assert.assertEquals(2006, listaAnos.get(10).intValue());
-		Assert.assertEquals(2007, listaAnos.get(11).intValue());
-		Assert.assertEquals(2008, listaAnos.get(12).intValue());
-		Assert.assertEquals(2009, listaAnos.get(13).intValue());
-		Assert.assertEquals(2010, listaAnos.get(14).intValue());
-		Assert.assertEquals(2011, listaAnos.get(15).intValue());
-		Assert.assertEquals(2012, listaAnos.get(16).intValue());
-		Assert.assertEquals(2013, listaAnos.get(17).intValue());
+		Assert.assertEquals(2013, listaAnos.get(0).intValue());
+		Assert.assertEquals(2012, listaAnos.get(1).intValue());
+		Assert.assertEquals(2011, listaAnos.get(2).intValue());
+		Assert.assertEquals(2010, listaAnos.get(3).intValue());
+		Assert.assertEquals(2009, listaAnos.get(4).intValue());
+		Assert.assertEquals(2008, listaAnos.get(5).intValue());
+		Assert.assertEquals(2007, listaAnos.get(6).intValue());
+		Assert.assertEquals(2006, listaAnos.get(7).intValue());
+		Assert.assertEquals(2005, listaAnos.get(8).intValue());
+		Assert.assertEquals(2004, listaAnos.get(9).intValue());
+		Assert.assertEquals(2003, listaAnos.get(10).intValue());
+		Assert.assertEquals(2002, listaAnos.get(11).intValue());
+		Assert.assertEquals(2001, listaAnos.get(12).intValue());
+		Assert.assertEquals(2000, listaAnos.get(13).intValue());
+		Assert.assertEquals(1999, listaAnos.get(14).intValue());
+		Assert.assertEquals(1998, listaAnos.get(15).intValue());
+		Assert.assertEquals(1997, listaAnos.get(16).intValue());
+		Assert.assertEquals(1996, listaAnos.get(17).intValue());
 	}
 
 	@Test

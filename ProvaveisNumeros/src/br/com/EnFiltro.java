@@ -7,5 +7,5 @@ package br.com;
  * 
  */
 public enum EnFiltro {
-	TUDO_ATE_HOJE, POR_ANO, PERIODO_DEFINIDO
+	TUDO_ATE_HOJE, POR_ANO, PERIODO_DEFINIDO, NUMERO_CONCURSO
 }

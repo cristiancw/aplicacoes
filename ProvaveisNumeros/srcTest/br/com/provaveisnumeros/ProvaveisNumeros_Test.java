@@ -21,9 +21,10 @@ public class ProvaveisNumeros_Test {
 		configuracao.setFiltro(EnFiltro.POR_ANO);
 		configuracao.setAno(1996);
 		configuracao.setFrequencia(EnFequencia.MAIS_FREQUENTES);
+		configuracao.setCaminho("C:/Eclipse/workspace/aplicacoes/ProvaveisNumeros/srcTest");
 
-		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros();
-		List<Resultado> resultados = provaveisNumeros.executar(configuracao);
+		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros(configuracao);
+		List<Resultado> resultados = provaveisNumeros.getResultados();
 		Assert.assertEquals(28, resultados.size());
 
 		Resultado resultado = resultados.get(0);
@@ -315,8 +316,8 @@ public class ProvaveisNumeros_Test {
 		configuracao.setAno(2010);
 		configuracao.setFrequencia(EnFequencia.MAIS_FREQUENTES);
 
-		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros();
-		List<Resultado> resultados = provaveisNumeros.executar(configuracao);
+		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros(configuracao);
+		List<Resultado> resultados = provaveisNumeros.getResultados();
 		Assert.assertEquals(84, resultados.size());
 
 		Resultado resultado = resultados.get(0);
@@ -378,8 +379,8 @@ public class ProvaveisNumeros_Test {
 		configuracao.setAno(1996);
 		configuracao.setFrequencia(EnFequencia.MENOS_FREQUENTES);
 
-		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros();
-		List<Resultado> resultados = provaveisNumeros.executar(configuracao);
+		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros(configuracao);
+		List<Resultado> resultados = provaveisNumeros.getResultados();
 		Assert.assertEquals(462, resultados.size());
 
 		Resultado resultado = resultados.get(0);
@@ -441,8 +442,8 @@ public class ProvaveisNumeros_Test {
 		configuracao.setAno(2010);
 		configuracao.setFrequencia(EnFequencia.MENOS_FREQUENTES);
 
-		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros();
-		List<Resultado> resultados = provaveisNumeros.executar(configuracao);
+		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros(configuracao);
+		List<Resultado> resultados = provaveisNumeros.getResultados();
 		Assert.assertEquals(1, resultados.size());
 
 		Resultado resultado = resultados.get(0);
@@ -465,8 +466,8 @@ public class ProvaveisNumeros_Test {
 		configuracao.setDataFinal(new LocalDate(2011, 8, 5));
 		configuracao.setFrequencia(EnFequencia.MAIS_FREQUENTES);
 
-		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros();
-		List<Resultado> resultados = provaveisNumeros.executar(configuracao);
+		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros(configuracao);
+		List<Resultado> resultados = provaveisNumeros.getResultados();
 		Assert.assertEquals(28, resultados.size());
 
 		Resultado resultado = resultados.get(0);
@@ -529,8 +530,8 @@ public class ProvaveisNumeros_Test {
 		configuracao.setDataFinal(new LocalDate(2001, 3, 24));
 		configuracao.setFrequencia(EnFequencia.MAIS_FREQUENTES);
 
-		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros();
-		List<Resultado> resultados = provaveisNumeros.executar(configuracao);
+		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros(configuracao);
+		List<Resultado> resultados = provaveisNumeros.getResultados();
 		Assert.assertEquals(1, resultados.size());
 
 		Resultado resultado = resultados.get(0);
@@ -553,8 +554,8 @@ public class ProvaveisNumeros_Test {
 		configuracao.setDataFinal(new LocalDate(2011, 8, 5));
 		configuracao.setFrequencia(EnFequencia.MENOS_FREQUENTES);
 
-		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros();
-		List<Resultado> resultados = provaveisNumeros.executar(configuracao);
+		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros(configuracao);
+		List<Resultado> resultados = provaveisNumeros.getResultados();
 		Assert.assertEquals(7, resultados.size());
 
 		Resultado resultado = resultados.get(0);
@@ -636,9 +637,10 @@ public class ProvaveisNumeros_Test {
 		configuracao.setDataInicial(new LocalDate(2001, 3, 24));
 		configuracao.setDataFinal(new LocalDate(2001, 3, 24));
 		configuracao.setFrequencia(EnFequencia.MENOS_FREQUENTES);
+		configuracao.setCaminho("C:/Eclipse/workspace/aplicacoes/ProvaveisNumeros/srcTest");
 
-		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros();
-		List<Resultado> resultados = provaveisNumeros.executar(configuracao);
+		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros(configuracao);
+		List<Resultado> resultados = provaveisNumeros.getResultados();
 		Assert.assertEquals(1, resultados.size());
 
 		Resultado resultado = resultados.get(0);
@@ -658,9 +660,10 @@ public class ProvaveisNumeros_Test {
 		configuracao.setBaixarNovoArquivo(false);
 		configuracao.setFiltro(EnFiltro.TUDO_ATE_HOJE);
 		configuracao.setFrequencia(EnFequencia.MAIS_FREQUENTES);
+		configuracao.setCaminho("C:/Eclipse/workspace/aplicacoes/ProvaveisNumeros/srcTest");
 
-		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros();
-		List<Resultado> resultados = provaveisNumeros.executar(configuracao);
+		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros(configuracao);
+		List<Resultado> resultados = provaveisNumeros.getResultados();
 		Assert.assertEquals(1, resultados.size());
 
 		Resultado resultado = resultados.get(0);
@@ -680,18 +683,59 @@ public class ProvaveisNumeros_Test {
 		configuracao.setBaixarNovoArquivo(false);
 		configuracao.setFiltro(EnFiltro.TUDO_ATE_HOJE);
 		configuracao.setFrequencia(EnFequencia.MENOS_FREQUENTES);
+		configuracao.setCaminho("C:/Eclipse/workspace/aplicacoes/ProvaveisNumeros/srcTest");
 
-		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros();
-		List<Resultado> resultados = provaveisNumeros.executar(configuracao);
-		Assert.assertEquals(1, resultados.size());
+		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros(configuracao);
+		List<Resultado> resultados = provaveisNumeros.getResultados();
+		Assert.assertEquals(28, resultados.size());
 
 		Resultado resultado = resultados.get(0);
 		Assert.assertEquals(0, resultado.getNumero());
 		Assert.assertEquals(new LocalDate(), resultado.getData());
 		Assert.assertEquals(9, resultado.getPri_dezena());
+		Assert.assertEquals(15, resultado.getSeg_dezena());
+		Assert.assertEquals(21, resultado.getTer_dezena());
+		Assert.assertEquals(22, resultado.getQua_dezena());
+		Assert.assertEquals(26, resultado.getQui_dezena());
+		Assert.assertEquals(39, resultado.getSex_dezena());
+
+		resultado = resultados.get(7);
+		Assert.assertEquals(0, resultado.getNumero());
+		Assert.assertEquals(new LocalDate(), resultado.getData());
+		Assert.assertEquals(9, resultado.getPri_dezena());
+		Assert.assertEquals(15, resultado.getSeg_dezena());
+		Assert.assertEquals(21, resultado.getTer_dezena());
+		Assert.assertEquals(26, resultado.getQua_dezena());
+		Assert.assertEquals(39, resultado.getQui_dezena());
+		Assert.assertEquals(55, resultado.getSex_dezena());
+
+		resultado = resultados.get(14);
+		Assert.assertEquals(0, resultado.getNumero());
+		Assert.assertEquals(new LocalDate(), resultado.getData());
+		Assert.assertEquals(9, resultado.getPri_dezena());
+		Assert.assertEquals(15, resultado.getSeg_dezena());
+		Assert.assertEquals(26, resultado.getTer_dezena());
+		Assert.assertEquals(39, resultado.getQua_dezena());
+		Assert.assertEquals(45, resultado.getQui_dezena());
+		Assert.assertEquals(55, resultado.getSex_dezena());
+
+		resultado = resultados.get(21);
+		Assert.assertEquals(0, resultado.getNumero());
+		Assert.assertEquals(new LocalDate(), resultado.getData());
+		Assert.assertEquals(15, resultado.getPri_dezena());
 		Assert.assertEquals(21, resultado.getSeg_dezena());
 		Assert.assertEquals(22, resultado.getTer_dezena());
 		Assert.assertEquals(26, resultado.getQua_dezena());
+		Assert.assertEquals(39, resultado.getQui_dezena());
+		Assert.assertEquals(45, resultado.getSex_dezena());
+
+		resultado = resultados.get(27);
+		Assert.assertEquals(0, resultado.getNumero());
+		Assert.assertEquals(new LocalDate(), resultado.getData());
+		Assert.assertEquals(21, resultado.getPri_dezena());
+		Assert.assertEquals(22, resultado.getSeg_dezena());
+		Assert.assertEquals(26, resultado.getTer_dezena());
+		Assert.assertEquals(39, resultado.getQua_dezena());
 		Assert.assertEquals(45, resultado.getQui_dezena());
 		Assert.assertEquals(55, resultado.getSex_dezena());
 	}
@@ -701,9 +745,9 @@ public class ProvaveisNumeros_Test {
 		Configuracao configuracao = new Configuracao();
 		configuracao.setFrequencia(null);
 
-		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros();
 		try {
-			provaveisNumeros.executar(configuracao);
+			ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros(configuracao);
+			provaveisNumeros.getResultados();
 		} catch (Exception e) {
 			Assert.assertTrue(e instanceof IllegalStateException);
 			Assert.assertEquals("A frequência está nula", e.getMessage());
@@ -718,9 +762,9 @@ public class ProvaveisNumeros_Test {
 		Configuracao configuracao = new Configuracao();
 		configuracao.setAno(-10);
 
-		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros();
 		try {
-			provaveisNumeros.executar(configuracao);
+			ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros(configuracao);
+			provaveisNumeros.getResultados();
 		} catch (Exception e) {
 			Assert.assertTrue(e instanceof IllegalStateException);
 			Assert.assertEquals("O ano informado é negativo: -10", e.getMessage());
@@ -735,9 +779,9 @@ public class ProvaveisNumeros_Test {
 		Configuracao configuracao = new Configuracao();
 		configuracao.setFiltro(null);
 
-		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros();
 		try {
-			provaveisNumeros.executar(configuracao);
+			ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros(configuracao);
+			provaveisNumeros.getResultados();
 		} catch (Exception e) {
 			Assert.assertTrue(e instanceof IllegalStateException);
 			Assert.assertEquals("O filtro informado é nulo", e.getMessage());
@@ -752,9 +796,9 @@ public class ProvaveisNumeros_Test {
 		Configuracao configuracao = new Configuracao();
 		configuracao.setFiltro(EnFiltro.POR_ANO);
 
-		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros();
 		try {
-			provaveisNumeros.executar(configuracao);
+			ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros(configuracao);
+			provaveisNumeros.getResultados();
 		} catch (Exception e) {
 			Assert.assertTrue(e instanceof IllegalStateException);
 			Assert.assertEquals("O filtro informado está definido para filtrar por ano mas não existe um ano informado", e.getMessage());
@@ -769,9 +813,9 @@ public class ProvaveisNumeros_Test {
 		Configuracao configuracao = new Configuracao();
 		configuracao.setFiltro(EnFiltro.PERIODO_DEFINIDO);
 
-		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros();
 		try {
-			provaveisNumeros.executar(configuracao);
+			ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros(configuracao);
+			provaveisNumeros.getResultados();
 		} catch (Exception e) {
 			Assert.assertTrue(e instanceof IllegalStateException);
 			Assert.assertEquals("O filtro informado está definido por período mas a data inicial ou data final não foi informada", e.getMessage());
@@ -788,9 +832,9 @@ public class ProvaveisNumeros_Test {
 		configuracao.setDataInicial(new LocalDate(2013, 10, 10));
 		configuracao.setDataFinal(new LocalDate(2013, 9, 10));
 
-		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros();
 		try {
-			provaveisNumeros.executar(configuracao);
+			ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros(configuracao);
+			provaveisNumeros.getResultados();
 		} catch (Exception e) {
 			Assert.assertTrue(e instanceof IllegalStateException);
 			Assert.assertEquals("A data inicial é maior que data final", e.getMessage());

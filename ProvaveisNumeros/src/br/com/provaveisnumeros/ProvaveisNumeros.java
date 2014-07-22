@@ -1,7 +1,6 @@
 package br.com.provaveisnumeros;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import br.com.Configuracao;
@@ -11,7 +10,11 @@ import br.com.Resultado;
 
 public class ProvaveisNumeros {
 
-	public List<Resultado> executar(final Configuracao configuracao) throws IOException {
+	private final List<Resultado> combinacoes;
+	private final List<Integer> frequentes;
+	private final FiltrarResultados filtraResultados;
+
+	public ProvaveisNumeros(final Configuracao configuracao) throws IOException {
 		if (configuracao == null) {
 			throw new IllegalStateException("O calculo não foi configurado corretamente");
 		}
@@ -21,13 +24,16 @@ public class ProvaveisNumeros {
 
 		// Carrega os resultados
 		CarregarResultados carregarResultados = new CarregarResultados();
+		if (configuracao.getCaminho() != null) {
+			carregarResultados = new CarregarResultados(configuracao.getCaminho());
+		}
 		if (configuracao.isBaixarNovoArquivo()) {
 			carregarResultados.baixar();
 		}
 		List<Resultado> resultados = carregarResultados.carregarResultado();
 
 		// Filtra os resultados
-		FiltrarResultados filtraResultados = new FiltrarResultados(resultados);
+		filtraResultados = new FiltrarResultados(resultados);
 		EnFiltro filtro = configuracao.getFiltro();
 		switch (filtro) {
 		case POR_ANO:
@@ -36,6 +42,7 @@ public class ProvaveisNumeros {
 		case PERIODO_DEFINIDO:
 			resultados = filtraResultados.getResultados(configuracao.getDataInicial(), configuracao.getDataFinal());
 			break;
+		case NUMERO_CONCURSO:
 		default: // TUDO_ATE_HOJE
 			resultados = filtraResultados.getResultados();
 			break;
@@ -44,7 +51,6 @@ public class ProvaveisNumeros {
 		// Busca os mais/menos frequentes
 		BuscaFrequencia calculaResultadoProvavel = new BuscaFrequencia(resultados);
 		EnFequencia frequencia = configuracao.getFrequencia();
-		List<Integer> frequentes = new ArrayList<Integer>(0);
 		if (EnFequencia.MENOS_FREQUENTES == frequencia) {
 			frequentes = calculaResultadoProvavel.getMenosFrequentes();
 		} else {
@@ -53,8 +59,18 @@ public class ProvaveisNumeros {
 
 		// Calcular as combinações
 		CalcularCombinacao calcularCombinacao = new CalcularCombinacao();
-		List<Resultado> combinacoes = calcularCombinacao.calcular(frequentes);
+		combinacoes = calcularCombinacao.calcular(frequentes);
+	}
 
+	public List<Resultado> getResultados() throws IOException {
 		return combinacoes;
+	}
+
+	public List<Integer> getFrequentes() {
+		return frequentes;
+	}
+
+	public List<Integer> getListaAnos() {
+		return filtraResultados.getListaAnos();
 	}
 }

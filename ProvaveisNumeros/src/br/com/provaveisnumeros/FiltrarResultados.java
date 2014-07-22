@@ -47,6 +47,7 @@ class FiltrarResultados {
 	List<Integer> getListaAnos() {
 		List<Integer> anos = new ArrayList<Integer>(anoLista.keySet());
 		Collections.sort(anos);
+		Collections.reverse(anos);
 		return anos;
 	}
 
