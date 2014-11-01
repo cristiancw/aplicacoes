@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Prováveis Números</string>
+    <string name="frequencia">Frequência:</string>
+    <string name="tudo_ate_hoje">Tudo até hoje</string>
+    <string name="por_ano">Por ano</string>
+    <string name="periodo">Por período definido</string>
+    <string name="data_inicio">De:</string>
+    <string name="data_final">até</string>
+    <string name="anos">Anos:</string>
+    <string name="filtro">Filtros:</string>
+    <string name="mais_frequentes">Mais freqüentes</string>
+    <string name="menos_frequentes">Menos freqüentes</string>
+    <string name="combinar">Combinar</string>
+    <string name="carregando_com_cache">Lendo os resultados já carregados...</string>
+    <string name="carregando_sem_cache">Carregando os dados. Leva em torno de 2min dependendo do dispositivo.</string>
+    <string name="executando">O calculo dos resultados pode demorar um pouco, dependendo do filtro e combinação utilizados.</string>
+    <string name="criando_cache">Criando cache dos dados carregados...</string>
+    <string name="iniciando">Iniciando...</string>
+    <string name="carregando_pela_primeira_vez">Carregando o arquivo com os resultados pela primeira vez.</string>
+    <string name="numeros_randomicos">Não existem mais números na lista.</string>
+    <string name="sem_resultado">Sem resultados possíveis. O arquivo com os resultados pode estar desatualizado ou o filtro indicado errado.</string>
+    <string name="listar_todos_resultados">Listar todos os resultados</string>
+    <string name="title_activity_lista_resultados">Lista de Resultados</string>
+    <string name="sem_resultados">Favor verificar se já foi filtrado os resultados e se houve algo calculado.</string>
+    <string name="atualizar">Atualizar arquivo</string>
+    <string name="conectividade">Favor verificar se está conectado a rede de dados ou a uma rede Wi-Fi.</string>
+    <string name="sem_conexao">Sem conexão com a internet.</string>
+    <string name="atualizando">Atualizando o arquivo com os resultados recentes...</string>
+    <string name="iniciando_atualizacao">Atualizando...</string>
+    <string name="concursos">Por concursos</string>
+
+</resources>
