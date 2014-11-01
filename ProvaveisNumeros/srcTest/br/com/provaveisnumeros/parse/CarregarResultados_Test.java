@@ -1,6 +1,7 @@
-package br.com.provaveisnumeros;
+package br.com.provaveisnumeros.parse;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
 
@@ -16,33 +17,105 @@ public class CarregarResultados_Test {
 
 	@Test
 	public void testaDownloadArquivo() {
-		final String caminho = System.getProperty("user.dir") + "//";
+		final String caminho = System.getProperty("user.dir") + "\\bin\\";
 
 		// Garante que não tem os arquivos
-		final String arquivoZip = "D_megase.zip";
-		File fileZip = new File(caminho + arquivoZip);
-		if (fileZip.exists()) {
-			fileZip.delete();
+		File zipFile = new File(caminho + CarregarResultados.ZIP_FILE);
+		if (zipFile.exists()) {
+			zipFile.delete();
 		}
-		Assert.assertFalse(fileZip.exists());
+		Assert.assertFalse(zipFile.exists());
 
-		final String arquivoHtml = "D_MEGA.HTM";
-		File fileHtml = new File(caminho + arquivoHtml);
-		if (fileHtml.exists()) {
-			fileHtml.delete();
+		File htmlFile = new File(caminho + CarregarResultados.HTML_FILE);
+		if (htmlFile.exists()) {
+			htmlFile.delete();
 		}
-		Assert.assertFalse(fileHtml.exists());
+		Assert.assertFalse(htmlFile.exists());
 
-		CarregarResultados carregarResultados = new CarregarResultados();
 		try {
-			carregarResultados.baixar();
+			CarregarResultados carregarResultados = new CarregarResultados(htmlFile, null, null);
+			carregarResultados.baixar(zipFile);
 		} catch (IOException e) {
 			Assert.fail("Erro ao baixar o arquivo");
 		}
 
 		// Valida que baixou o arquivo
-		Assert.assertTrue(fileZip.exists());
-		Assert.assertTrue(fileHtml.exists());
+		Assert.assertTrue(zipFile.exists());
+		Assert.assertTrue(htmlFile.exists());
+	}
+
+	@Test
+	public void testaDownloadArquivoComLeitura() throws IOException {
+		final String caminho = System.getProperty("user.dir") + "\\bin\\";
+
+		// Garante que não tem os arquivos
+		File zipFile = new File(caminho + CarregarResultados.ZIP_FILE);
+		if (zipFile.exists()) {
+			zipFile.delete();
+		}
+		Assert.assertFalse(zipFile.exists());
+
+		File htmlFile = new File(caminho + CarregarResultados.HTML_FILE);
+		if (htmlFile.exists()) {
+			htmlFile.delete();
+		}
+		Assert.assertFalse(htmlFile.exists());
+
+		CarregarResultados carregarResultados = new CarregarResultados(htmlFile, null, null);
+		try {
+			carregarResultados.baixar(zipFile);
+		} catch (IOException e) {
+			Assert.fail("Erro ao baixar o arquivo");
+		}
+
+		// Valida que baixou o arquivo
+		Assert.assertTrue(zipFile.exists());
+		Assert.assertTrue(htmlFile.exists());
+
+		List<Resultado> resultados = carregarResultados.carregarResultado();
+		Resultado concurso = resultados.get(0);
+		Assert.assertEquals(1, concurso.getNumero());
+		Assert.assertEquals(new LocalDate(1996, 3, 11), concurso.getData());
+		Assert.assertEquals(41, concurso.getPri_dezena());
+		Assert.assertEquals(5, concurso.getSeg_dezena());
+		Assert.assertEquals(4, concurso.getTer_dezena());
+		Assert.assertEquals(52, concurso.getQua_dezena());
+		Assert.assertEquals(30, concurso.getQui_dezena());
+		Assert.assertEquals(33, concurso.getSex_dezena());
+
+		// avalia os numeros dos concursos
+		int numero = 0;
+		for (Resultado resultado : resultados) {
+			numero++;
+			Assert.assertEquals(numero, resultado.getNumero());
+		}
+		Assert.assertEquals(numero, resultados.size());
+	}
+
+	@Test
+	public void testaCopiarArquivoHtml() {
+		final String caminho = System.getProperty("user.dir") + "\\srcTest\\";
+
+		File htmlFile = new File(caminho + CarregarResultados.HTML_FILE);
+		Assert.assertTrue(htmlFile.exists());
+
+		File copyFile = new File(caminho + "br\\" + CarregarResultados.HTML_FILE);
+		if (copyFile.exists()) {
+			copyFile.delete();
+		}
+		Assert.assertFalse(copyFile.exists());
+
+		try {
+			CarregarResultados carregarResultados = new CarregarResultados(copyFile, new FileInputStream(htmlFile), null);
+			carregarResultados.copiarArquivoHtml();
+		} catch (IOException e) {
+			Assert.fail("Erro ao copiar o arquivo");
+		}
+
+		// Valida que copiou o arquivo
+		Assert.assertTrue(htmlFile.exists());
+		Assert.assertTrue(copyFile.exists());
+		copyFile.delete();
 	}
 
 	@Test
@@ -152,8 +225,8 @@ public class CarregarResultados_Test {
 
 	private List<Resultado> getResultados() throws IOException {
 		if (carregarResultado == null) {
-			CarregarResultados carregarResultados = new CarregarResultados("C:/Eclipse/workspace/aplicacoes/ProvaveisNumeros/srcTest");
-			carregarResultado = carregarResultados.carregarResultado();
+			File htmlFile = new File("C:/Eclipse/workspace/aplicacoes/ProvaveisNumeros/srcTest/" + CarregarResultados.HTML_FILE);
+			carregarResultado = new CarregarResultados(htmlFile, null, null).carregarResultado();
 		}
 		return carregarResultado;
 	}

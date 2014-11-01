@@ -1,5 +1,6 @@
 package br.com.provaveisnumeros;
 
+import java.io.Serializable;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -19,7 +20,9 @@ import br.com.Util;
  * @author Cristiancw
  * 
  */
-class FiltrarResultados {
+class FiltrarResultados implements Serializable {
+
+	private static final long serialVersionUID = -8501844086303019585L;
 
 	private final List<Resultado> lista;
 	private final Map<Integer, List<Resultado>> anoLista;
@@ -28,10 +31,10 @@ class FiltrarResultados {
 	/**
 	 * Contrutor que recebe a lista completa com todos os resultados.
 	 * 
-	 * @param resultados
+	 * @param historicoResultados
 	 */
-	FiltrarResultados(List<Resultado> resultados) {
-		lista = new ArrayList<Resultado>(resultados);
+	FiltrarResultados(List<Resultado> historicoResultados) {
+		lista = new ArrayList<Resultado>(historicoResultados);
 		anoLista = new HashMap<Integer, List<Resultado>>();
 		dataLista = new TreeMap<LocalDate, Resultado>();
 
@@ -79,6 +82,27 @@ class FiltrarResultados {
 	 */
 	List<Resultado> getResultados(LocalDate inicio, LocalDate fim) {
 		return new ArrayList<Resultado>(dataLista.subMap(inicio, true, fim, true).values());
+	}
+
+	/**
+	 * Lista dos resultados entre um período concursor baseado no número do concurso.
+	 * 
+	 * @param inicio
+	 * @param fim
+	 * @return lista dos resultados entre concursos
+	 */
+	List<Resultado> getResultados(int inicio, int fim) {
+		inicio--;
+		inicio = Math.max(inicio, 0); // não deixa ficar negatico
+		fim = fim < inicio ? inicio : fim; // se fim for menor que inicio, considerar que o fim == inicio
+		fim = Math.min(fim, lista.size()); // não deixa ficar com valor acima do tamanho da lista
+
+		List<Resultado> resultados = new ArrayList<Resultado>(Math.max(fim - inicio, 1));
+		for (int i = inicio; i < fim; i++) {
+			resultados.add(lista.get(i));
+		}
+
+		return resultados;
 	}
 
 	/**

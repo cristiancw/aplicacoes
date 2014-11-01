@@ -1,5 +1,6 @@
 package br.com.provaveisnumeros;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -8,6 +9,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import br.com.Resultado;
+import br.com.provaveisnumeros.parse.CarregarResultados;
 
 public class BuscaFrequencia_Test {
 
@@ -209,8 +211,8 @@ public class BuscaFrequencia_Test {
 
 	private List<Resultado> getResultados() throws IOException {
 		if (carregarResultado == null) {
-			CarregarResultados carregarResultados = new CarregarResultados("C:/Eclipse/workspace/aplicacoes/ProvaveisNumeros/srcTest");
-			carregarResultado = carregarResultados.carregarResultado();
+			File htmlFile = new File("C:/Eclipse/workspace/aplicacoes/ProvaveisNumeros/srcTest/" + CarregarResultados.HTML_FILE);
+			carregarResultado = new CarregarResultados(htmlFile, null, null).carregarResultado();
 		}
 		return carregarResultado;
 	}

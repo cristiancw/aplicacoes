@@ -1,5 +1,7 @@
 package br.com;
 
+import java.io.Serializable;
+
 import org.joda.time.LocalDate;
 
 /**
@@ -7,7 +9,9 @@ import org.joda.time.LocalDate;
  * 
  * @author Cristiancw
  */
-public class Resultado {
+public class Resultado implements Serializable {
+
+	private static final long serialVersionUID = 4650700045889173029L;
 
 	private int numero;
 	private LocalDate data;
@@ -17,6 +21,21 @@ public class Resultado {
 	private int qua_dezena;
 	private int qui_dezena;
 	private int sex_dezena;
+
+	public Resultado() {
+	}
+
+	public Resultado(int numero, LocalDate data, int pri_dezena, int seg_dezena, int ter_dezena, int qua_dezena, int qui_dezena, int sex_dezena) {
+		super();
+		this.numero = numero;
+		this.data = data;
+		this.pri_dezena = pri_dezena;
+		this.seg_dezena = seg_dezena;
+		this.ter_dezena = ter_dezena;
+		this.qua_dezena = qua_dezena;
+		this.qui_dezena = qui_dezena;
+		this.sex_dezena = sex_dezena;
+	}
 
 	public int getNumero() {
 		return numero;
@@ -80,6 +99,22 @@ public class Resultado {
 
 	public void setSex_dezena(int sex_dezena) {
 		this.sex_dezena = sex_dezena;
+	}
+
+	public String getNumeros() {
+		StringBuilder builder = new StringBuilder();
+		builder.append(pri_dezena);
+		builder.append(", ");
+		builder.append(seg_dezena);
+		builder.append(", ");
+		builder.append(ter_dezena);
+		builder.append(", ");
+		builder.append(qua_dezena);
+		builder.append(", ");
+		builder.append(qui_dezena);
+		builder.append(", ");
+		builder.append(sex_dezena);
+		return builder.toString();
 	}
 
 	@Override
