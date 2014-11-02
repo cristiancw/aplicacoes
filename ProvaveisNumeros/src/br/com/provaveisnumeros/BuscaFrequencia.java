@@ -91,6 +91,11 @@ class BuscaFrequencia {
 			}
 		}
 
+		// Quando não passou nada pelo filtro, por exemplo números de consursos que não existem ainda, datas que não existem ainda.
+		if (pos >= listaOrdenada.length) {
+			pos = 0;
+		}
+
 		// busca os 6 mais repetidos
 		int[] mais = new int[ITENS];
 		mais[0] = listaOrdenada[pos++];

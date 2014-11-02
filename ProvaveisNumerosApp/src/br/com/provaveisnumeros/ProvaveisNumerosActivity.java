@@ -81,6 +81,9 @@ public class ProvaveisNumerosActivity extends Activity {
 		String mensagem = getIntent().getExtras().getString(MainActivity.MENSAGEM, null);
 		if (mensagem != null) {
 			txtErro.setText(mensagem);
+			if (mensagem.equals(getText(R.string.conectividade))) {
+				Toast.makeText(this, R.string.sem_conexao, Toast.LENGTH_LONG).show();
+			}
 		}
 
 		preferencias = new Preferencias(this);
@@ -181,8 +184,16 @@ public class ProvaveisNumerosActivity extends Activity {
 		}
 		configuracao.setDataInicial(dataInicial);
 		configuracao.setDataFinal(dataFinal);
-		configuracao.setConcursoInicial(Integer.parseInt(concursoInicio));
-		configuracao.setConcursoFinal(Integer.parseInt(concursoFim));
+		try {
+			configuracao.setConcursoInicial(Integer.parseInt(concursoInicio));
+		} catch (NumberFormatException e) {
+			configuracao.setConcursoInicial(1);
+		}
+		try {
+			configuracao.setConcursoFinal(Integer.parseInt(concursoFim));
+		} catch (NumberFormatException e) {
+			configuracao.setConcursoFinal(1);
+		}
 		configuracao.setAno(anoSelecionado);
 		switch (frequenciaItem) {
 		case 1:

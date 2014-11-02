@@ -6,14 +6,11 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.joda.time.LocalDate;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.TextView;
-import android.widget.Toast;
 import br.com.Resultado;
 import br.com.provaveisnumeros.parse.CarregarResultados;
 
@@ -72,18 +69,25 @@ public class MainActivity extends Activity {
 		final CarregarResultados carregarResultados = new CarregarResultados(htmlFile, htmlFileInAssets, cacheDir);
 
 		asyncTask = new AsyncTask<String, Integer, List<Resultado>>() {
+			private boolean erroConexao;
 
 			@Override
 			protected List<Resultado> doInBackground(String... params) {
+				erroConexao = false;
+
 				publishProgress(isAtualizar ? R.string.iniciando_atualizacao : R.string.iniciando);
 				List<Resultado> resultados = new ArrayList<Resultado>(1);
-				try {
-					if (isAtualizar) {
+				if (isAtualizar) {
+					try {
 						publishProgress(R.string.atualizando);
 						carregarResultados.baixar(zipFile);
+					} catch (IOException e) {
+						erroConexao = true;
 					}
+				}
 
-					if (!isAtualizar && carregarResultados.isCached()) {
+				try {
+					if ((!isAtualizar || erroConexao) && carregarResultados.isCached()) {
 						publishProgress(R.string.carregando_com_cache);
 						resultados = carregarResultados.carregarCache();
 					} else {
@@ -110,13 +114,6 @@ public class MainActivity extends Activity {
 
 			@Override
 			protected void onPostExecute(List<Resultado> result) {
-				boolean erroConexao = false;
-				if (result.isEmpty()) {
-					result.add(new Resultado(1, new LocalDate(), 0, 0, 0, 0, 0, 0));
-					Toast.makeText(MainActivity.this, R.string.sem_conexao, Toast.LENGTH_SHORT).show();
-					erroConexao = true;
-				}
-
 				ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros(result);
 				Intent intentProvaveisNumeros = new Intent(MainActivity.this, ProvaveisNumerosActivity.class);
 				intentProvaveisNumeros.putExtra(PROVAVEIS_NUMEROS, provaveisNumeros);

@@ -2,6 +2,7 @@ package br.com.provaveisnumeros;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.joda.time.LocalDate;
@@ -119,6 +120,13 @@ public class BuscaFrequencia_Test {
 	}
 
 	@Test
+	public void testaResultadosMaisFrequentes_06() throws IOException {
+		BuscaFrequencia buscaFrequencia = new BuscaFrequencia(new ArrayList<Resultado>());
+		List<Integer> maisFrequentes = buscaFrequencia.getMaisFrequentes();
+		Assert.assertEquals(0, maisFrequentes.size());
+	}
+
+	@Test
 	public void testaResultadosMenosFrequentesMaisFrequentes_01() throws IOException {
 		FiltrarResultados filtraResultados = new FiltrarResultados(getResultados());
 		List<Resultado> resultados = filtraResultados.getResultados(new LocalDate(1996, 3, 11), new LocalDate(1996, 3, 18));
@@ -207,6 +215,13 @@ public class BuscaFrequencia_Test {
 		Assert.assertEquals(new Integer(38), menosFrequentes.get(i++));
 		Assert.assertEquals(new Integer(42), menosFrequentes.get(i++));
 		Assert.assertEquals(new Integer(59), menosFrequentes.get(i++));
+	}
+
+	@Test
+	public void testaResultadosMenosFrequentes_06() throws IOException {
+		BuscaFrequencia buscaFrequencia = new BuscaFrequencia(new ArrayList<Resultado>());
+		List<Integer> menosFrequentes = buscaFrequencia.getMenosFrequentes();
+		Assert.assertEquals(0, menosFrequentes.size());
 	}
 
 	private List<Resultado> getResultados() throws IOException {
