@@ -37,7 +37,7 @@ public class ProvaveisNumeros_Test {
 		configuracao.setDataFinal(new LocalDate(1997, 3, 16));
 		configuracao.setFrequencia(EnFrequencia.MAIS_FREQUENTES);
 
-		File htmlFile = new File("C:/Eclipse/workspace/aplicacoes/ProvaveisNumeros/srcTest/" + CarregarResultados.HTML_FILE);
+		File htmlFile = new File(System.getProperty("user.dir") + "/srcTest/" + CarregarResultados.HTML_FILE);
 		List<Resultado> historicoResultados = new CarregarResultados(htmlFile, null, null).carregarResultado();
 
 		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros(historicoResultados);
@@ -70,7 +70,7 @@ public class ProvaveisNumeros_Test {
 
 	@Test
 	public void testaListaAnos() throws IOException {
-		File htmlFile = new File("C:/Eclipse/workspace/aplicacoes/ProvaveisNumeros/srcTest/" + CarregarResultados.HTML_FILE);
+		File htmlFile = new File(System.getProperty("user.dir") + "/srcTest/" + CarregarResultados.HTML_FILE);
 		List<Resultado> historicoResultados = new CarregarResultados(htmlFile, null, null).carregarResultado();
 
 		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros(historicoResultados);
@@ -103,7 +103,7 @@ public class ProvaveisNumeros_Test {
 		configuracao.setAno(1996);
 		configuracao.setFrequencia(EnFrequencia.MAIS_FREQUENTES);
 
-		File htmlFile = new File("C:/Eclipse/workspace/aplicacoes/ProvaveisNumeros/srcTest/" + CarregarResultados.HTML_FILE);
+		File htmlFile = new File(System.getProperty("user.dir") + "/srcTest/" + CarregarResultados.HTML_FILE);
 		List<Resultado> historicoResultados = new CarregarResultados(htmlFile, null, null).carregarResultado();
 
 		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros(historicoResultados);
@@ -400,7 +400,7 @@ public class ProvaveisNumeros_Test {
 		configuracao.setAno(2010);
 		configuracao.setFrequencia(EnFrequencia.MAIS_FREQUENTES);
 
-		File htmlFile = new File("C:/Eclipse/workspace/aplicacoes/ProvaveisNumeros/srcTest/" + CarregarResultados.HTML_FILE);
+		File htmlFile = new File(System.getProperty("user.dir") + "/srcTest/" + CarregarResultados.HTML_FILE);
 		List<Resultado> historicoResultados = new CarregarResultados(htmlFile, null, null).carregarResultado();
 
 		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros(historicoResultados);
@@ -466,7 +466,7 @@ public class ProvaveisNumeros_Test {
 		configuracao.setAno(1996);
 		configuracao.setFrequencia(EnFrequencia.MENOS_FREQUENTES);
 
-		File htmlFile = new File("C:/Eclipse/workspace/aplicacoes/ProvaveisNumeros/srcTest/" + CarregarResultados.HTML_FILE);
+		File htmlFile = new File(System.getProperty("user.dir") + "/srcTest/" + CarregarResultados.HTML_FILE);
 		List<Resultado> historicoResultados = new CarregarResultados(htmlFile, null, null).carregarResultado();
 
 		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros(historicoResultados);
@@ -532,7 +532,7 @@ public class ProvaveisNumeros_Test {
 		configuracao.setAno(2010);
 		configuracao.setFrequencia(EnFrequencia.MENOS_FREQUENTES);
 
-		File htmlFile = new File("C:/Eclipse/workspace/aplicacoes/ProvaveisNumeros/srcTest/" + CarregarResultados.HTML_FILE);
+		File htmlFile = new File(System.getProperty("user.dir") + "/srcTest/" + CarregarResultados.HTML_FILE);
 		List<Resultado> historicoResultados = new CarregarResultados(htmlFile, null, null).carregarResultado();
 
 		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros(historicoResultados);
@@ -559,7 +559,7 @@ public class ProvaveisNumeros_Test {
 		configuracao.setDataFinal(new LocalDate(2011, 8, 5));
 		configuracao.setFrequencia(EnFrequencia.MAIS_FREQUENTES);
 
-		File htmlFile = new File("C:/Eclipse/workspace/aplicacoes/ProvaveisNumeros/srcTest/" + CarregarResultados.HTML_FILE);
+		File htmlFile = new File(System.getProperty("user.dir") + "/srcTest/" + CarregarResultados.HTML_FILE);
 		List<Resultado> historicoResultados = new CarregarResultados(htmlFile, null, null).carregarResultado();
 
 		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros(historicoResultados);
@@ -626,7 +626,7 @@ public class ProvaveisNumeros_Test {
 		configuracao.setDataFinal(new LocalDate(2001, 3, 24));
 		configuracao.setFrequencia(EnFrequencia.MAIS_FREQUENTES);
 
-		File htmlFile = new File("C:/Eclipse/workspace/aplicacoes/ProvaveisNumeros/srcTest/" + CarregarResultados.HTML_FILE);
+		File htmlFile = new File(System.getProperty("user.dir") + "/srcTest/" + CarregarResultados.HTML_FILE);
 		List<Resultado> historicoResultados = new CarregarResultados(htmlFile, null, null).carregarResultado();
 
 		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros(historicoResultados);
@@ -653,7 +653,7 @@ public class ProvaveisNumeros_Test {
 		configuracao.setDataFinal(new LocalDate(2011, 8, 5));
 		configuracao.setFrequencia(EnFrequencia.MENOS_FREQUENTES);
 
-		File htmlFile = new File("C:/Eclipse/workspace/aplicacoes/ProvaveisNumeros/srcTest/" + CarregarResultados.HTML_FILE);
+		File htmlFile = new File(System.getProperty("user.dir") + "/srcTest/" + CarregarResultados.HTML_FILE);
 		List<Resultado> historicoResultados = new CarregarResultados(htmlFile, null, null).carregarResultado();
 
 		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros(historicoResultados);
@@ -740,7 +740,7 @@ public class ProvaveisNumeros_Test {
 		configuracao.setDataFinal(new LocalDate(2001, 3, 24));
 		configuracao.setFrequencia(EnFrequencia.MENOS_FREQUENTES);
 
-		File htmlFile = new File("C:/Eclipse/workspace/aplicacoes/ProvaveisNumeros/srcTest/" + CarregarResultados.HTML_FILE);
+		File htmlFile = new File(System.getProperty("user.dir") + "/srcTest/" + CarregarResultados.HTML_FILE);
 		List<Resultado> historicoResultados = new CarregarResultados(htmlFile, null, null).carregarResultado();
 
 		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros(historicoResultados);
@@ -767,7 +767,7 @@ public class ProvaveisNumeros_Test {
 		configuracao.setConcursoFinal(1306);
 		configuracao.setFrequencia(EnFrequencia.MAIS_FREQUENTES);
 
-		File htmlFile = new File("C:/Eclipse/workspace/aplicacoes/ProvaveisNumeros/srcTest/" + CarregarResultados.HTML_FILE);
+		File htmlFile = new File(System.getProperty("user.dir") + "/srcTest/" + CarregarResultados.HTML_FILE);
 		List<Resultado> historicoResultados = new CarregarResultados(htmlFile, null, null).carregarResultado();
 
 		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros(historicoResultados);
@@ -834,7 +834,7 @@ public class ProvaveisNumeros_Test {
 		configuracao.setConcursoFinal(264);
 		configuracao.setFrequencia(EnFrequencia.MAIS_FREQUENTES);
 
-		File htmlFile = new File("C:/Eclipse/workspace/aplicacoes/ProvaveisNumeros/srcTest/" + CarregarResultados.HTML_FILE);
+		File htmlFile = new File(System.getProperty("user.dir") + "/srcTest/" + CarregarResultados.HTML_FILE);
 		List<Resultado> historicoResultados = new CarregarResultados(htmlFile, null, null).carregarResultado();
 
 		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros(historicoResultados);
@@ -861,7 +861,7 @@ public class ProvaveisNumeros_Test {
 		configuracao.setConcursoFinal(1306);
 		configuracao.setFrequencia(EnFrequencia.MENOS_FREQUENTES);
 
-		File htmlFile = new File("C:/Eclipse/workspace/aplicacoes/ProvaveisNumeros/srcTest/" + CarregarResultados.HTML_FILE);
+		File htmlFile = new File(System.getProperty("user.dir") + "/srcTest/" + CarregarResultados.HTML_FILE);
 		List<Resultado> historicoResultados = new CarregarResultados(htmlFile, null, null).carregarResultado();
 
 		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros(historicoResultados);
@@ -948,7 +948,7 @@ public class ProvaveisNumeros_Test {
 		configuracao.setConcursoFinal(264);
 		configuracao.setFrequencia(EnFrequencia.MENOS_FREQUENTES);
 
-		File htmlFile = new File("C:/Eclipse/workspace/aplicacoes/ProvaveisNumeros/srcTest/" + CarregarResultados.HTML_FILE);
+		File htmlFile = new File(System.getProperty("user.dir") + "/srcTest/" + CarregarResultados.HTML_FILE);
 		List<Resultado> historicoResultados = new CarregarResultados(htmlFile, null, null).carregarResultado();
 
 		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros(historicoResultados);
@@ -973,7 +973,7 @@ public class ProvaveisNumeros_Test {
 		configuracao.setFiltro(EnFiltro.TUDO_ATE_HOJE);
 		configuracao.setFrequencia(EnFrequencia.MAIS_FREQUENTES);
 
-		File htmlFile = new File("C:/Eclipse/workspace/aplicacoes/ProvaveisNumeros/srcTest/" + CarregarResultados.HTML_FILE);
+		File htmlFile = new File(System.getProperty("user.dir") + "/srcTest/" + CarregarResultados.HTML_FILE);
 		List<Resultado> historicoResultados = new CarregarResultados(htmlFile, null, null).carregarResultado();
 
 		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros(historicoResultados);
@@ -998,7 +998,7 @@ public class ProvaveisNumeros_Test {
 		configuracao.setFiltro(EnFiltro.TUDO_ATE_HOJE);
 		configuracao.setFrequencia(EnFrequencia.MENOS_FREQUENTES);
 
-		File htmlFile = new File("C:/Eclipse/workspace/aplicacoes/ProvaveisNumeros/srcTest/" + CarregarResultados.HTML_FILE);
+		File htmlFile = new File(System.getProperty("user.dir") + "/srcTest/" + CarregarResultados.HTML_FILE);
 		List<Resultado> historicoResultados = new CarregarResultados(htmlFile, null, null).carregarResultado();
 
 		ProvaveisNumeros provaveisNumeros = new ProvaveisNumeros(historicoResultados);

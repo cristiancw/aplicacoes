@@ -944,7 +944,7 @@ public class FiltrarResultados_Test {
 
 	private List<Resultado> getResultados() throws IOException {
 		if (carregarResultado == null) {
-			File htmlFile = new File("C:/Eclipse/workspace/aplicacoes/ProvaveisNumeros/srcTest/" + CarregarResultados.HTML_FILE);
+			File htmlFile = new File(System.getProperty("user.dir") + "/srcTest/" + CarregarResultados.HTML_FILE);
 			carregarResultado = new CarregarResultados(htmlFile, null, null).carregarResultado();
 		}
 		return carregarResultado;
